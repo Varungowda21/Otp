@@ -15,5 +15,5 @@ app.post('/otp/:userId',checkSchema(otpValidationSchema),loginCltr.otp)
 app.get('/:userId',loginCltr.info)
 
 app.listen(process.env.PORT,()=>{
-    console.log('server running on 7777')
+    console.log('server running successfully')
 })
