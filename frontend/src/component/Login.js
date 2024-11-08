@@ -1,11 +1,10 @@
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import validator from 'validator'
 import { useNavigate } from 'react-router-dom'
 import axios from '../config/axios'
 import bg from '../images/bg.png'
 import logo from '../images/logo.png'
 import containerbg from '../images/containerBg.png'
-import Swal from 'sweetalert2'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function Login(){
@@ -16,6 +15,7 @@ export default function Login(){
   const errors={}
   const navigate=useNavigate()
 
+  
   
   const runValidations = () => {
     if(email.trim().length == 0) {
@@ -32,7 +32,6 @@ export default function Login(){
             } else {
                 return (
                     <div>
-                        <h5 className="text-danger">These errors prevented the form from being saved:</h5>
                         <ul>
                             {serverErrors.map((ele, i) => (
                                 <li key={i} className="text-danger"> {ele.msg} </li>
@@ -56,12 +55,6 @@ export default function Login(){
             navigate(`/otp/${response.data._id}`)
         } catch(err) {
           setServerErrors(err.response.data.errors)
-          Swal.fire({
-            title: 'Failed',
-            text: displayErrors(),
-            icon: 'error',
-            confirmButtonText: 'Ok'
-          })
             setClientErrors({})
         }
         setLoading(false)
@@ -132,6 +125,11 @@ export default function Login(){
                 borderRadius: '6px',
               }}
             />
+             { serverErrors && (
+              <span  style={{ fontSize: '17px' }}>
+                {displayErrors()}
+              </span>
+            )} 
             {clientErrors.email && (
               <span className="text-danger d-block text-center mt-2" style={{ fontSize: '14px' }}>
                 {clientErrors.email}

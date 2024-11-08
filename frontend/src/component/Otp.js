@@ -67,11 +67,10 @@ export default function Otp() {
     }
 
     const handleChange = (element, index) => {
-        console.log({element:element.value,index})
+        
         if (isNaN(element.value)) return
         const newOtp = [...otp]
         newOtp[index] = element.value
-        console.log(newOtp)
         setOtp(newOtp);
 
         
