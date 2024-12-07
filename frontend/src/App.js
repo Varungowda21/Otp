@@ -26,8 +26,10 @@ function App() {
           </div>
         </div>
       </nav>
+      {/* added footer section */}
         <Routes>
         <Route path='/' element={<Login/>}/>
+
         <Route path='/otp/:id' element={<Otp/>}/>
         </Routes>
     </div>
