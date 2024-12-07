@@ -5,7 +5,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "./images/nav.png";
 function App() {
   return (
-    <div>
+
+    <div >
+      {/* added home page */}
+
       <nav
         className="navbar navbar-expand-lg"
         style={{ backgroundColor: "#0B1420", padding: "1rem" }}
