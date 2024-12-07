@@ -6,6 +6,7 @@ import logo from './images/nav.png'
 function App() {
   return (
     <div >
+      {/* added home page */}
       <nav
         className="navbar navbar-expand-lg"
         style={{ backgroundColor: '#0B1420', padding: '1rem' }}
